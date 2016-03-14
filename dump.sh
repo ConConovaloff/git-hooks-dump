@@ -13,4 +13,11 @@ for var in "$@"
 do
 	echo "# argument ----------------->  $var " >> $FILE_DUMP
 done
+
+if ! [ -t 0 ]; then
+    while read -r line ; do
+        echo "# stdin: $line" >> $FILE_DUMP
+    done
+fi
+
 echo "========================================" >> $FILE_DUMP
